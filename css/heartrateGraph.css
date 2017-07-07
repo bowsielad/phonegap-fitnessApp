@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	border: 0;
+	outline: none;
+	text-decoration: none;
+	list-style: none;
+	line-height: 1em;
+	-webkit-font-smoothing: antialiased;
+	-webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0; padding:0;
+}
+
+html,
+body,
+.page{
+/*height:100%;*/
+background-color:#fff;
+font-family: 'Roboto', sans-serif;
+}
+
+#Wrapper{
+	max-width:480px;
+	width:100%;
+	height: 100%;
+	/*background-color:#fff;*/
+	margin-left:auto;
+	margin-right:auto;
+	position: relative;	
+	/*overflow: auto;*/
+	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9d15c+46,fae197+100 */
+
+background: #f9d15c; /* Old browsers */
+
+background: -moz-linear-gradient(-45deg,  #f9d15c 46%, #fae197 100%); /* FF3.6-15 */
+
+background: -webkit-linear-gradient(-45deg,  #f9d15c 46%,#fae197 100%); /* Chrome10-25,Safari5.1-6 */
+
+background: linear-gradient(135deg,  #f9d15c 46%,#fae197 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9d15c', endColorstr='#fae197',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
+
+}
+
+#container {
+	margin-top:0px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: 480px;
+	height: 100vh;
+	/*background-color: #F9D15C;*/
+	/*text-align: center;*/
+	/*border-radius: 8px;*/
+	overflow: auto;
+}
+
+.heartrateIcon{
+	height:100px;
+	width:100px;
+	margin:40px 0 0 30px;
+	display:inline-block;
+}
+.shadow {
+    -webkit-filter: drop-shadow( 0px 0px 5px #f4b233 );
+            filter: drop-shadow( 0px 0px 5px #f4b233 ); /* Same syntax as box-shadow, except for the spread property */
+}
+
+.resultInfo{
+	font-family: 'Poppins', sans-serif;
+	font-size: 4em;
+	/*line-height:2.5em;*/
+	font-weight: 500;
+	color:#fff;
+	margin:10px 0 0 30px;
+	text-shadow: 0px 0px 8px #f4b233;
+}
+.resultInfo span{
+	font-size: 50%;
+	font-weight: 300;
+}
+.restingGoal{
+	font-family: 'Poppins', sans-serif;
+	color:#fff;
+	font-size: 1.4em;
+	font-weight: 300;
+	margin:5px 0 0 30px;
+	text-shadow: 0px 0px 8px #f4b233;
+}
+
+/*.restingGoal span{
+	font-size: 90%;
+	font-weight: 300;
+}*/
+
+#todayDate{
+	margin:15px 0 30px 30px;
+	font-size: 0.8em;
+	/*line-height: 1.2em;*/
+	font-family: 'Roboto', sans-serif;
+	color: #42216c;
+	font-weight: 400;
+}
+
+.bighome-icon{
+	width: 50px;
+	height: 50px;
+	/*background-color: #666;*/
+	/*margin-left:200px;*/
+	font-size: 2em;
+	line-height: 1.6em;
+	text-align: center;
+	display:inline-block;
+	float:right;
+	color:#fff;
+	vertical-align: top;
+}
+.clearing{ clear: both;}
+
+.bighome-icon a {
+    text-decoration: none;
+    color: #42216c;
+}
+
+.graphWrapper{
+min-width:280px;
+width: 100%;
+height: auto;
+/*background-color: red;*/
+margin-left:auto;
+margin-right:auto;	
+	
+}
+
+#GraphContainer{
+height: 260px;	
+background-color: none;	
+	
+}
+
+@media screen and (min-width:325px) {
+	
+#GraphContainer{
+height: 360px;	
+background-color: none;	
+	
+}
+}

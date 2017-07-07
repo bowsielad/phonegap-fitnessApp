@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <link rel="shortcut icon" href="http://bowsiedesign.com/favicon.ico">
+    
+<meta http-equiv="Content-Security-Policy" content="
+    default-src *; 
+    style-src * 'unsafe-inline'; 
+    script-src * 'unsafe-inline'; 
+    media-src *; img-src * data:;
+" />
+    
+   <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+	<script type="text/javascript" src="js/getActiveGraph.js"></script>
+
+    <link href="css/heartrateGraph.css" rel="stylesheet" type="text/css" />
+	<link href="css/slideMenu.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,900" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    
+<title>heartRateGraph</title>
+
+</head>
+
+<body>
+    
+<div id="Wrapper">
+
+<!--<div class="menu">
+	<div class="app-menu">
+    <div class="menuheader">
+    <div class="close-icon"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    
+    <div class="menuLogoWrapper"><div class="menuLogo"><img src="img/menuLogo.svg" id="" alt="menuLogo" ></div></div>
+    
+<div class="sidenav">
+
+<a href="#">leaderboard</a>
+<a href="#">profile</a>
+<a href="#">notifications</a>
+<a href="#">settings</a>
+<a href="#">sign out</a>
+
+</div>--><!--// End sidenav //-->
+
+
+    
+<!--</div>--><!--// End app-menu //-->
+<!--</div>--><!--// End menu//-->
+
+
+<!--<div class="topHeader" id="fadetopHeader">
+<div class="header">
+	<div class="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i></div>
+    <div class="home-icon"><a href="G4F_App.html"><i class="fa fa-home" aria-hidden="true"></i></a></div>
+</div>
+
+</div>-->  <!--// End topHeader //-->
+
+
+<div id="container">
+
+
+<div class="heartrateIcon">
+<svg version="1.1" id="Layer_1" class="shadow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+
+	 width="100px" height="100px" viewBox="0 0 60 53.736" style="enable-background:new 0 0 60 53.736;" xml:space="preserve">
+
+<style type="text/css">
+
+<![CDATA[ .st0{fill:#FAE197;} ]]>
+
+</style>
+
+<g>
+
+	<g>
+
+		<g>
+
+			<path class="st0" d="M53.639,5.08c-7.971-8.116-21.904-2.37-23.7,3.304C28.144,2.781,14.211-3.036,6.239,5.08
+
+				c-9.12,9.336-4.883,21.977,4.381,30.953c4.955,4.812,19.319,16.591,19.319,16.591s14.364-11.778,19.319-16.591
+
+				C58.522,27.056,62.761,14.416,53.639,5.08z"/>
+
+			
+
+		</g>
+
+	</g>
+
+</g>
+
+</svg>
+
+
+</div>
+
+<div class="bighome-icon"><a href="getActive.html"><i class="fa fa-reply" aria-hidden="true"></i></a></div>
+
+<div class="clearing"></div> 
+
+<div class="resultInfo">82<span>/bpm</span></div>
+
+<div class="restingGoal"><span id="restingHeart">00</span> bpm resting</div>
+
+<div id="todayDate">todays date and time!</div>
+
+
+<div class="graphWrapper">
+
+<div id="GraphContainer" ></div>
+
+</div>
+
+</div>
+
+
+</div>  <!--// End container //-->
+
+
+
+<!--<div class="bottomFooter">
+
+<p>&copy; 2017 - <a href="#" onclick="openMyWebsite()">rbowers Dev &amp; Design</a></p>
+
+</div>-->
+
+
+
+
+</div>  <!--// End Wrapper //-->
+        
+   
+<script type="text/javascript">
+
+
+// get the token from local storage
+
+var fitbitAccessToken = window.localStorage.getItem("key");
+
+
+// make the get request
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+		
+		readBody(xhr);
+        console.log("xhr done successfully");
+        
+    }
+}
+xhr.open('GET', '', true);
+xhr.setRequestHeader('Authorization', 'Bearer ' + fitbitAccessToken);
+xhr.send(null);
+
+
+
+
+// handle the data from the get request
+
+
+function readBody(xhr) {
+ var data;
+	
+	if(xhr){
+		
+	var resp = xhr.responseText;
+    data = JSON.parse(resp);
+		
+	//console.log(data);
+	//console.log(data['user'].displayName);
+	
+	//$( "#name" ).html(data['user'].displayName);
+	
+		
+	} else if (!xhr.responseType || xhr.responseType === "text") {
+        data = xhr.responseText;
+    } else if (xhr.responseType === "document") {
+        data = xhr.responseXML;
+    } else {
+        data = xhr.response;
+    }
+    return data;
+	
+}
+
+
+<!--// fade in/out top header //-->
+
+/*$(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+        $( "#fadetopHeader" ).fadeIn();
+    } else {
+        console.log('top logo appears');
+        $( "#fadetopHeader" ).fadeOut();
+    }
+});*/
+
+
+<!--// Side Menu //-->
+
+/*function toggleClassMenu() {
+	myMenu.classList.add("menu--animatable");	
+	if(!myMenu.classList.contains("menu--visible")) {		
+		myMenu.classList.add("menu--visible");
+	} else {
+		myMenu.classList.remove('menu--visible');		
+	}	
+}
+
+function OnTransitionEnd() {
+	myMenu.classList.remove("menu--animatable");
+}
+
+var myMenu = document.querySelector(".menu");
+var oppMenu = document.querySelector(".menu-icon");
+myMenu.addEventListener("transitionend", OnTransitionEnd, false);
+oppMenu.addEventListener("click", toggleClassMenu, false);
+myMenu.addEventListener("click", toggleClassMenu, false);*/
+
+
+<!--// Show and hide divs //-->
+
+function _(x){
+	return document.getElementById(x);
+}
+
+function toggleElement(x) {
+    var x = _(x);
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+		
+		
+	} else {
+        x.style.display = 'block';
+		
+    }
+}
+
+
+
+<!--// Show date and time //-->
+
+var objToday = new Date(),
+	weekday = new Array('Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'),
+	dayOfWeek = weekday[objToday.getDay()],
+	domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a ? "rd" : "th" }(),
+	dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
+	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+	curMonth = months[objToday.getMonth()],
+	curYear = objToday.getFullYear(),
+	curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours()),
+	curMinute = objToday.getMinutes() < 10 ? "0" + objToday.getMinutes() : objToday.getMinutes(),
+	curSeconds = objToday.getSeconds() < 10 ? "0" + objToday.getSeconds() : objToday.getSeconds(),
+	curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
+var today = curHour + ":" + curMinute + "." + curSeconds + curMeridiem + " " + dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
+
+document.getElementById("todayDate").innerHTML = today;
+
+
+window.onload = function()
+{
+	GetHeartData();
+	
+}
+		
+ </script>
+</body>
+
+</html>

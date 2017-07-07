@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <link rel="shortcut icon" href="http://bowsiedesign.com/favicon.ico">
+    
+<meta http-equiv="Content-Security-Policy" content="
+    default-src *; 
+    style-src * 'unsafe-inline'; 
+    script-src * 'unsafe-inline'; 
+    media-src *; img-src * data:;
+" />
+    
+   <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+<link href="css/slideMenu.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,900" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    
+<title>G4F-APP</title>
+    
+</head>
+
+<body>
+
+<div id="Wrapper">
+
+<div class="menu">
+	<div class="app-menu">
+    <div class="menuheader">
+    <div class="close-icon"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    
+    <div class="menuLogoWrapper"><div class="menuLogo"><img src="img/menuLogo.svg" id="" alt="menuLogo" ></div></div>
+    
+<div class="sidenav">
+
+<a href="#">leaderboard</a>
+<a href="#">profile</a>
+<a href="#">notifications</a>
+<a href="#">settings</a>
+<a href="#">sign out</a>
+
+</div><!--// End sidenav //-->
+
+
+    
+    </div><!--// End app-menu //-->
+</div><!--// End menu//-->
+
+
+<div class="topHeader" id="fadetopHeader">
+<div class="header">
+	<div class="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i></div>
+    <div class="home-icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+</div>
+
+</div>  <!--// End topHeader //-->
+
+
+<div id="container">
+
+<div class="topWrapper">
+
+<div class="sync"><img src="img/SyncIcon.svg" style="height:33px; width:25px;"/></div>
+
+<div class="threeDots"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+    
+<div class="ProfilePicWrapper"><div class="defaltProfilePic"><img src="img/ProfileDefault.png" id="AvatarPic" alt="PlaceHolder Pic" ></div></div>
+
+<div class="threeDots"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+
+<div class="sync"><img src="img/SyncMailIcon.svg" style="height:32px; width:25px;"/></div>
+
+
+<div class="ProfileName" >hello <span id="name">name</span></div>
+
+</div>  <!--// End topWrapper //-->
+
+
+<div class="flex-container">
+  <div class="flex-item"><a href="getActive.html"><img src="img/fitIcon01.svg" class="HealthIcon"/></a></div>
+  <div class="flex-item Color2"><a href="bikeSmart.html"><img src="img/fitIcon02.svg" class="HealthIcon"/></a></div>
+  <div class="flex-item Color3"><img src="img/fitIcon03.svg" class="HealthIcon"/></div>
+  <div class="flex-item Color4"><img src="img/fitIcon04.svg" class="HealthIcon"/></div>
+  <div class="flex-item Color5"><img src="img/fitIcon05.svg" class="HealthIcon"/></div>
+  <div class="flex-item Color6"><img src="img/fitIcon06.svg" class="HealthIcon"/></div>
+</div>
+
+<div id="statsWrapper">
+
+<div class="statsIcon"><a href="#"><img src="img/StatsProfileIcon.svg" id="" alt="menuLogo" ></a></div>
+
+<div id="statsTitle">profile stats</br><span>last updated: 4 days ago.</span></div>
+
+</div>
+
+
+
+<div class="quicklookWrapper">
+
+<div class="quicklookTitle">Quick look for today.</div>
+
+
+
+
+<div id="QuickHeart">
+<div class="quickText">steps</div>
+<img src="img/indexIcon01.svg" style="height:70px; width:70px;"/>
+<div class="quickText" id="stepsData">0,000</div>
+</div>
+
+<div id="QuickMiles">
+<div class="quickText">miles</div>
+<img src="img/indexIcon02.svg" style="height:70px; width:70px;"/>
+<div class="quickText" id="distanceData">0.00</div>
+</div>
+
+<div id="QuickCals">
+<div class="quickText">cals</div>
+<img src="img/indexIcon03.svg" style="height:70px; width:70px;"/>
+<div class="quickText" id="caloriesData">0,000</div>
+</div>
+
+
+</div>  <!--// End quicklookWrapper //-->
+
+
+
+</div>  <!--// End container //-->
+
+
+
+<div class="bottomFooter">
+
+<p>&copy; 2017 - <a href="#" onclick="openMyWebsite()">rbowers Dev &amp; Design</a></p>
+
+</div>
+
+
+
+
+</div>  <!--// End Wrapper //-->
+
+
+
+
+    
+<script type="text/javascript">
+
+var SessionStorage = window.sessionStorage;
+
+var n = SessionStorage.getItem('counter');
+
+
+// open win and turn off location 
+
+function openInAppBrowser(){
+	
+if(n===null){
+	
+var win = window.open( "", "_blank",
+  "EnableViewPortScale=yes,location=no,zoom=no,hardwareback=no" );
+
+// Once the InAppBrowser finishes loading
+win.addEventListener( "loadstop", function() {
+
+    // Clear out the name in localStorage for subsequent opens.
+    win.executeScript({ code: "localStorage.setItem( 'token', '' );" });
+
+    // Start an interval
+    var loop = setInterval(function() {
+
+        // Execute JavaScript to check for the existence of a name in the
+        // child browser's localStorage.
+        win.executeScript(
+            {
+                code: "localStorage.getItem( 'token' )"
+            },
+            function( values ) {
+                var token = values[ 0 ];
+
+                // If a name was set, clear the interval and close the InAppBrowser.
+                if ( token ) {
+                    clearInterval( loop );
+                    win.close();
+                    //$( "h1" ).html( "token: " + token );
+					
+					var fitbitAccessToken = token;
+					
+					var storage = window.localStorage;
+					
+	                storage.setItem('key', fitbitAccessToken)
+					SessionStorage.setItem('counter', 1)
+					
+					
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+		
+		readBody(xhr);
+        console.log("xhr done successfully");
+        
+    }
+}
+xhr.open('GET', '', true);
+xhr.setRequestHeader('Authorization', 'Bearer ' + fitbitAccessToken);
+xhr.send(null);
+					
+					
+					}
+            }
+        );
+    });
+});
+
+}
+
+if(n==1){
+	
+// get the userName from local storage
+var userName = window.sessionStorage.getItem("userName");
+$( "#name" ).html(userName);
+
+// get the userAvator from local storage
+var userAvator = window.sessionStorage.getItem("userAvatar");
+$("#AvatarPic").attr("src",userAvator);
+	
+//alert('get data new way here!');
+
+/*var fitbitAccessToken = window.localStorage.getItem("key");
+	
+// make the get request
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+		
+		readBody(xhr);
+        console.log("xhr done successfully");
+        
+    }
+}
+xhr.open('GET', 'https://api.fitbit.com/1/user/-/profile.json', true);
+xhr.setRequestHeader('Authorization', 'Bearer ' + fitbitAccessToken);
+xhr.send(null);*/
+	
+	}
+
+else{
+	
+	//alert('nothing worked!');
+	
+	}
+
+}
+
+
+
+// handle the data from the get request
+
+function readBody(xhr) {
+ var data;
+	
+	if(xhr){
+		
+	var resp = xhr.responseText;
+    data = JSON.parse(resp);
+		
+	//console.log(data);
+	
+	$( "#name" ).html(data['user'].displayName);
+	
+	SessionStorage.setItem('userName', data['user'].displayName)
+	
+	var avatarUrl = data['user'].avatar150;
+	//console.log(url);
+	$("#AvatarPic").attr("src",avatarUrl);
+	
+	SessionStorage.setItem('userAvatar', avatarUrl)
+	
+		
+	} else if (!xhr.responseType || xhr.responseType === "text") {
+        data = xhr.responseText;
+    } else if (xhr.responseType === "document") {
+        data = xhr.responseXML;
+    } else {
+        data = xhr.response;
+    }
+    return data;
+
+}
+
+<!--// fade in/out top header //-->
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+        $( "#fadetopHeader" ).fadeIn();
+    } else {
+        console.log('top logo appears');
+        $( "#fadetopHeader" ).fadeOut();
+    }
+});
+
+<!--// Side Menu //-->
+
+function toggleClassMenu() {
+	myMenu.classList.add("menu--animatable");	
+	if(!myMenu.classList.contains("menu--visible")) {		
+		myMenu.classList.add("menu--visible");
+	} else {
+		myMenu.classList.remove('menu--visible');		
+	}	
+}
+
+function OnTransitionEnd() {
+	myMenu.classList.remove("menu--animatable");
+}
+
+var myMenu = document.querySelector(".menu");
+var oppMenu = document.querySelector(".menu-icon");
+myMenu.addEventListener("transitionend", OnTransitionEnd, false);
+oppMenu.addEventListener("click", toggleClassMenu, false);
+myMenu.addEventListener("click", toggleClassMenu, false);
+
+
+window.onload = function()
+{
+	openInAppBrowser();
+	
+	indexStepsData();
+	indexDistanceData();
+	indexCaloriesData();
+	
+}
+
+
+
+</script>
+</body>
+
+</html>

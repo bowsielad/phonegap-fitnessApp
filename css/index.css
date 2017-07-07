@@ -1,0 +1,252 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	border: 0;
+	outline: none;
+	text-decoration: none;
+	list-style: none;
+	line-height: 1em;
+	-webkit-font-smoothing: antialiased;
+	-webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0; padding:0;
+}
+
+html,
+body,
+.page{
+/*height:100%;*/
+/*background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);*/
+background-color:#b2dfdc;
+font-family: 'Roboto', sans-serif;
+
+}
+
+#Wrapper{
+	max-width:480px;
+	width:100%;
+	height: 100%;
+	background-color:#b2dfdc;
+	margin-left:auto;
+	margin-right:auto;
+	position: relative;	/*overflow: auto;*/
+	
+}
+
+#container {
+	margin-top:0px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 96%;
+	max-width: 480px;
+	height: 100%;
+	background-color: #b2dfdc;
+	text-align: center;
+	/*border-radius: 8px;*/
+	/*overflow: auto;*/
+}
+
+.topWrapper{
+	width:100%;
+	height:auto;
+	/*text-align: left;*/
+	background-color:#b2dfdc;
+	/*border-bottom:1px solid #4cb4ad;*/
+	padding:15px 0 15px 0;
+	margin-bottom:2%;
+}
+
+.ProfilePicWrapper{
+	padding:2px;
+	max-width:116px;
+	width:100%;
+	height:116px;
+	border: 8px solid #e2f0f1;
+	border-radius: 50%;
+	background-color: #fff;
+	/*display:block;*/
+	margin-left:auto;
+	margin-right:auto;
+	display:inline-block;
+}
+
+.defaltProfilePic{
+    max-width:96px;
+	width:100%;
+    height:96px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid #4cb4ad;
+}
+.ProfileName{
+	width:100%;
+	height:auto;
+	margin: 4% 0 0 0;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;	
+	font-size: 1em;
+	line-height: 1em;
+	font-family: 'Roboto', sans-serif;
+	color: #5C8FA6;
+}
+
+/*img {width:100%;}*/
+
+.threeDots{
+	width:20px;
+	height:auto;
+	/*background-color: red;*/
+	display:inline-block;
+	font-size: 2em;
+	line-height: 1.5em;
+	vertical-align: top;
+	margin-top:35px;
+	color:#e2f0f1;
+}
+
+.sync{
+	width:30px;
+	height:38px;
+	/*background-color: red;*/
+	display:inline-block;
+}
+
+
+
+.flex-container {
+margin-top:0%;
+background-color: #FAFEFF;
+/* display: flex;*/
+flex-wrap: wrap;
+/*height:auto;*/
+display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+display: -ms-flexbox;  /* TWEENER - IE 10 */
+display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+.flex-item {
+  background-color: #F9D15C;
+  min-height: 160px;
+  margin: 0%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  align-content: start;
+  flex-basis: 50%;
+}
+
+.Color2{background-color: #F19743;}
+.Color3{background-color: #EA408A;}
+.Color4{background-color: #B5206A;}
+.Color5{background-color: #71195B;}
+.Color6{background-color: #50186f;}
+
+
+.HealthIcon{
+	height:100%; 
+	width:110px;
+}
+
+
+/* quicklook list */
+
+.quicklookWrapper{
+	height:200px;
+	width:100%;
+	
+	text-align: center;
+	/*background-color: pink;*/
+}
+.quicklookTitle{
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.4em;
+	line-height:1.6em;
+	color:#5C8FA6;
+	padding:0;
+	margin:4% 0 2% 0;
+	font-weight: 300;
+}
+
+#QuickHeart{
+	margin-left:2%;
+	width: 30%;
+	height: auto;
+	/*background-color: blue;*/
+	display:inline-block;
+	float:left;
+}
+
+#QuickMiles{
+	width: 36%;
+	height: auto;
+	/*background-color: green;*/
+	display:inline-block;
+	float:left;
+	border-right: 1px solid #e2f0f1;
+	border-left: 1px solid #e2f0f1;
+}
+#QuickCals{
+	margin-right:2%;
+	width: 30%;
+	height: auto;
+	/*background-color: blue;*/
+	display:inline-block;
+	float:left;
+	
+}
+
+.quickText{
+	margin:5px 0 10px 0;
+	color: #5C8FA6;
+	font-weight: 100;
+	font-size: 1.1em;
+	line-height: 1.4em;	
+}
+
+
+#statsWrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: auto;
+	background-color: #4cb4ad;
+	text-align: center;
+	padding:20px 0 20px 0px;
+	margin:0px 0 20px 0;
+}
+
+.statsIcon{
+	width: 80px;
+	height: 80px;
+	display:inline-block;
+	
+}
+
+#statsTitle{
+	/*width: 100%;*/
+	height:auto;
+	/*background-color: red;*/
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.3em;
+	line-height:1.1em;
+	font-weight: 500;
+	color:#fff;
+	/*padding:0px 0 0px 10px;*/
+	margin:15px 0 0 10px;
+	display:inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+#statsTitle span{
+	
+	font-size: 65%;
+	/*line-height:1.6em;*/
+	font-weight: 300;
+	color:#fff;
+	
+}
